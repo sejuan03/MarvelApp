@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MarvelCharactersApp</string>
+    <string name="marvel_character">Marvel Character</string>
+    <string name="character_description">Description</string>
+    <string name="character_name">Character Name</string>
+    <string name="character_id">ID</string>
+    <string name="Error_message">Error</string>
+    <string name="comic_name">Comic name</string>
 </resources>
