@@ -21,8 +21,8 @@
         android:id="@+id/character_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/marvel_character"
         android:layout_marginTop="16dp"
+        android:text="@string/marvel_character"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,15 +32,25 @@
         android:id="@+id/character_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:textSize="20sp"
-        android:layout_marginStart="32dp"
         android:text="@string/character_description"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/character_name" />
+
+    <TextView
+        android:id="@+id/comic_list"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:textSize="30sp"
+        android:text="@string/comic_list"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/character_description" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/comics_container"
@@ -50,7 +60,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/character_description"
-        tools:listitem="@layout/comic_item"/>
+        app:layout_constraintTop_toBottomOf="@+id/comic_list"
+        tools:listitem="@layout/comic_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,22 +1,23 @@
 package com.sejuandev.marvelcharactersapp.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sejuandev.marvelcharactersapp.adapters.CharactersAdapter
+import com.sejuandev.marvelcharactersapp.adapters.OnClickListener
 import com.sejuandev.marvelcharactersapp.databinding.ActivityMainBinding
 import com.sejuandev.marvelcharactersapp.model.domain.DomainMarvelCharacter
 import com.sejuandev.marvelcharactersapp.model.domain.MarvelEvents
-import com.sejuandev.marvelcharactersapp.ui.CharacterItem
 import com.sejuandev.marvelcharactersapp.ui.MainViewModel
-import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.GroupieViewHolder
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
     private val viewModel = MainViewModel()
-    private val groupAdapter = GroupAdapter<GroupieViewHolder>()
+    //private val groupAdapter = GroupAdapter<GroupieViewHolder>()
+    private lateinit var adapter : CharactersAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +40,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun showCharactersList(characterList: List<DomainMarvelCharacter>) {
         binding.errorMessage.visibility = View.GONE
-        characterList.map {
-            groupAdapter.add(CharacterItem(it))
+        characterList.forEach() {
+            adapter.addCharacters(it)
         }
     }
 
@@ -58,8 +59,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setRecycler() {
-        binding.charactersContainer.adapter = groupAdapter
+        adapter = CharactersAdapter(this)
+        binding.charactersContainer.adapter = adapter
         binding.charactersContainer.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+    }
+
+    override fun onCharacterClicked(character: DomainMarvelCharacter) {
+        val intent = Intent(this, CharacterDescriptionActivity::class.java).apply {
+            putExtra(CharacterDescriptionActivity.CHARACTER, character)
+        }
+        this.startActivity(intent)
     }
 }
