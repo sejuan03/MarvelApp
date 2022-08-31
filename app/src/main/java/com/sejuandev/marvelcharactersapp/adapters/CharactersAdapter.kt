@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sejuandev.marvelcharactersapp.R
 import com.sejuandev.marvelcharactersapp.databinding.CharacterItemBinding
-import com.sejuandev.marvelcharactersapp.model.domain.DomainMarvelCharacter
 import com.sejuandev.marvelcharactersapp.extensions.setImageURL
+import com.sejuandev.marvelcharactersapp.model.domain.DomainMarvelCharacter
 
 class CharactersAdapter(private val listener: OnClickListener) :
     RecyclerView.Adapter<CharactersAdapter.CharactersHolder>() {

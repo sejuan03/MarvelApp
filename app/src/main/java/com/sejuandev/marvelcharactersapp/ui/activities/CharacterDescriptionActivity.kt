@@ -6,14 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sejuandev.marvelcharactersapp.adapters.ComicsAdapter
 import com.sejuandev.marvelcharactersapp.databinding.ActivityCharacterDescriptionBinding
-import com.sejuandev.marvelcharactersapp.model.domain.DomainMarvelCharacter
 import com.sejuandev.marvelcharactersapp.extensions.setImageURL
+import com.sejuandev.marvelcharactersapp.model.domain.DomainMarvelCharacter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CharacterDescriptionActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCharacterDescriptionBinding
-
-    // private val groupAdapter = GroupAdapter<GroupieViewHolder>()
     private lateinit var adapter: ComicsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {

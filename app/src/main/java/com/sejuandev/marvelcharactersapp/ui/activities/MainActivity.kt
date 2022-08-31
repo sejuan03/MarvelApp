@@ -3,6 +3,7 @@ package com.sejuandev.marvelcharactersapp.ui.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sejuandev.marvelcharactersapp.adapters.CharactersAdapter
@@ -11,13 +12,16 @@ import com.sejuandev.marvelcharactersapp.databinding.ActivityMainBinding
 import com.sejuandev.marvelcharactersapp.model.domain.DomainMarvelCharacter
 import com.sejuandev.marvelcharactersapp.model.domain.MarvelEvents
 import com.sejuandev.marvelcharactersapp.ui.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity : AppCompatActivity(),OnClickListener {
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity(), OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
-    private val viewModel = MainViewModel()
-    //private val groupAdapter = GroupAdapter<GroupieViewHolder>()
-    private lateinit var adapter : CharactersAdapter
+
+    private val viewModel: MainViewModel by viewModels()
+
+    private lateinit var adapter: CharactersAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
