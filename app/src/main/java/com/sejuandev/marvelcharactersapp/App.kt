@@ -1,13 +1,7 @@
 package com.sejuandev.marvelcharactersapp
 
 import android.app.Application
-import com.sejuandev.marvelcharactersapp.data.ApiClient
+import dagger.hilt.android.HiltAndroidApp
 
-class App : Application() {
-
-    override fun onCreate() {
-        super.onCreate()
-        ApiClient.initApiService()
-    }
-
-}
+@HiltAndroidApp
+class App : Application()
