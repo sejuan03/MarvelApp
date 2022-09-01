@@ -1,4 +1,4 @@
-package com.sejuandev.marvelcharactersapp.model
+package com.sejuandev.marvelcharactersapp.data.model
 
 data class MarvelCharacter(
     val comics: Comics,

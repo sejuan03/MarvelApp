@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sejuandev.marvelcharactersapp.adapters.CharactersAdapter
 import com.sejuandev.marvelcharactersapp.adapters.OnClickListener
 import com.sejuandev.marvelcharactersapp.databinding.ActivityMainBinding
-import com.sejuandev.marvelcharactersapp.model.domain.DomainMarvelCharacter
+import com.sejuandev.marvelcharactersapp.domain.DomainMarvelCharacter
 import com.sejuandev.marvelcharactersapp.ui.MainViewModel
 import com.sejuandev.marvelcharactersapp.usecases.MarvelCharactersState
 import dagger.hilt.android.AndroidEntryPoint

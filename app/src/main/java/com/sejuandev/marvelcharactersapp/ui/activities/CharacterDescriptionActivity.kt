@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sejuandev.marvelcharactersapp.adapters.ComicsAdapter
 import com.sejuandev.marvelcharactersapp.databinding.ActivityCharacterDescriptionBinding
 import com.sejuandev.marvelcharactersapp.extensions.setImageURL
-import com.sejuandev.marvelcharactersapp.model.domain.DomainMarvelCharacter
+import com.sejuandev.marvelcharactersapp.domain.DomainMarvelCharacter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

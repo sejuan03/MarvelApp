@@ -1,7 +1,7 @@
-package com.sejuandev.marvelcharactersapp.model.domain
+package com.sejuandev.marvelcharactersapp.domain
 
 import android.os.Parcelable
-import com.sejuandev.marvelcharactersapp.model.MarvelCharacter
+import com.sejuandev.marvelcharactersapp.data.model.MarvelCharacter
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

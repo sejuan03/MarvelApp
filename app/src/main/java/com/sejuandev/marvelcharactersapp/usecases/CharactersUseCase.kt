@@ -1,6 +1,6 @@
 package com.sejuandev.marvelcharactersapp.usecases
 
-import com.sejuandev.marvelcharactersapp.repository.MarvelRepository
+import com.sejuandev.marvelcharactersapp.domain.repository.MarvelRepository
 import javax.inject.Inject
 
 class CharactersUseCase @Inject constructor(

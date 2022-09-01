@@ -1,6 +1,6 @@
 package com.sejuandev.marvelcharactersapp.usecases
 
-import com.sejuandev.marvelcharactersapp.model.domain.DomainMarvelCharacter
+import com.sejuandev.marvelcharactersapp.domain.DomainMarvelCharacter
 
 sealed class MarvelCharactersState {
     class ShowLoading(val isLoading: Boolean) : MarvelCharactersState()
