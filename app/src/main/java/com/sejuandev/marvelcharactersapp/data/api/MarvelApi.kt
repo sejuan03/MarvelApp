@@ -1,7 +1,7 @@
 package com.sejuandev.marvelcharactersapp.data.api
 
 import com.sejuandev.marvelcharactersapp.constants.PUBLIC_CHARACTERS
-import com.sejuandev.marvelcharactersapp.model.MarvelApiResponse
+import com.sejuandev.marvelcharactersapp.data.model.MarvelApiResponse
 import retrofit2.http.GET
 import retrofit2.http.QueryMap
 

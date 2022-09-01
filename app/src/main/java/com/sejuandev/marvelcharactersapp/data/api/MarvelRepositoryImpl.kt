@@ -1,7 +1,7 @@
-package com.sejuandev.marvelcharactersapp.repository
+package com.sejuandev.marvelcharactersapp.data.api
 
-import com.sejuandev.marvelcharactersapp.data.api.MarvelApi
-import com.sejuandev.marvelcharactersapp.model.domain.DomainMarvelCharacter
+import com.sejuandev.marvelcharactersapp.domain.DomainMarvelCharacter
+import com.sejuandev.marvelcharactersapp.domain.repository.MarvelRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

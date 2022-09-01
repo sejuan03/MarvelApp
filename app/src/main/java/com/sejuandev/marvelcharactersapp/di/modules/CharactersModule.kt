@@ -1,7 +1,7 @@
 package com.sejuandev.marvelcharactersapp.di.modules
 
-import com.sejuandev.marvelcharactersapp.repository.MarvelRepository
-import com.sejuandev.marvelcharactersapp.repository.MarvelRepositoryImpl
+import com.sejuandev.marvelcharactersapp.domain.repository.MarvelRepository
+import com.sejuandev.marvelcharactersapp.data.api.MarvelRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
