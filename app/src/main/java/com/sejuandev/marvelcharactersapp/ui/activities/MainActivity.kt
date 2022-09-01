@@ -2,17 +2,19 @@ package com.sejuandev.marvelcharactersapp.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sejuandev.marvelcharactersapp.adapters.CharactersAdapter
 import com.sejuandev.marvelcharactersapp.adapters.OnClickListener
 import com.sejuandev.marvelcharactersapp.databinding.ActivityMainBinding
 import com.sejuandev.marvelcharactersapp.model.domain.DomainMarvelCharacter
-import com.sejuandev.marvelcharactersapp.model.domain.MarvelEvents
 import com.sejuandev.marvelcharactersapp.ui.MainViewModel
+import com.sejuandev.marvelcharactersapp.usecases.MarvelCharactersState
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), OnClickListener {
@@ -33,33 +35,31 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     }
 
     private fun setObserver() {
-        viewModel.data.observe(this, ::handleEvents)
-    }
-
-    private fun handleEvents(marvelEvent: MarvelEvents) = when (marvelEvent) {
-        is MarvelEvents.ShowError -> showErrorMessage(marvelEvent.message)
-        is MarvelEvents.ShowLoading -> showLoading(marvelEvent.show)
-        is MarvelEvents.ShowCharacters -> showCharactersList(marvelEvent.characterList)
+        lifecycleScope.launch {
+            viewModel.state.collect {
+                when (it) {
+                    is MarvelCharactersState.ShowCharactersList -> showCharactersList(it.charactersList)
+                    is MarvelCharactersState.ShowError -> showErrorMessage(it.error)
+                    is MarvelCharactersState.ShowLoading -> showLoading(it.isLoading)
+                }
+            }
+        }
     }
 
     private fun showCharactersList(characterList: List<DomainMarvelCharacter>) {
-        binding.errorMessage.visibility = View.GONE
+        binding.errorMessage.isVisible = false
         characterList.forEach() {
             adapter.addCharacters(it)
         }
     }
 
     private fun showLoading(show: Boolean) {
-        binding.progressBar.visibility = if (show) {
-            View.VISIBLE
-        } else {
-            View.GONE
-        }
+        binding.progressBar.isVisible = show
     }
 
     private fun showErrorMessage(message: String?) {
         binding.errorMessage.text = message
-        binding.errorMessage.visibility = View.VISIBLE
+        binding.errorMessage.isVisible = true
     }
 
     private fun setRecycler() {

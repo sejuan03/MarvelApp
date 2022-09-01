@@ -1,50 +1,44 @@
 package com.sejuandev.marvelcharactersapp.ui
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sejuandev.marvelcharactersapp.controllers.CharactersController
-import com.sejuandev.marvelcharactersapp.model.domain.MarvelEvents
+import androidx.lifecycle.viewModelScope
+import com.sejuandev.marvelcharactersapp.constants.ERROR_MESSAGE
+import com.sejuandev.marvelcharactersapp.usecases.CharactersUseCase
+import com.sejuandev.marvelcharactersapp.usecases.MarvelCharactersState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
-import javax.inject.Named
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    @Named("service") private val controller: CharactersController
+    private val characters: CharactersUseCase
 ) : ViewModel() {
 
-    private val disposable = CompositeDisposable()
+    private val _state: MutableStateFlow<MarvelCharactersState> =
+        MutableStateFlow(MarvelCharactersState.ShowLoading(true))
+    val state: StateFlow<MarvelCharactersState> get() = _state
 
-    private val _data = MutableLiveData<MarvelEvents>()
-    val data: LiveData<MarvelEvents> get() = _data
-
-    fun getCharacters() {
-        disposable.add(
-            controller.getCharacters()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe {
-                    _data.value = MarvelEvents.ShowLoading(true)
+    fun getCharacters() = viewModelScope.launch {
+        withContext(Dispatchers.IO) {
+            val charactersList = characters.getCharacters()
+            withContext(Dispatchers.Main) {
+                charactersList.catch { cause ->
+                    _state.value =
+                        MarvelCharactersState.ShowError(error = cause.message ?: ERROR_MESSAGE)
                 }
-                .doFinally {
-                    _data.value = MarvelEvents.ShowLoading(false)
-                }
-                .subscribe(
-                    {
-                        _data.value = MarvelEvents.ShowCharacters(it)
+                    .onStart {
+                        _state.value = MarvelCharactersState.ShowLoading(isLoading = true)
                     }
-                ) {
-                    _data.value = MarvelEvents.ShowError(it.message)
-                }
-        )
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        disposable.dispose()
+                    .onCompletion {
+                        _state.value = MarvelCharactersState.ShowLoading(isLoading = false)
+                    }
+                    .collect() {
+                        _state.value = MarvelCharactersState.ShowCharactersList(charactersList = it)
+                    }
+            }
+        }
     }
 }
