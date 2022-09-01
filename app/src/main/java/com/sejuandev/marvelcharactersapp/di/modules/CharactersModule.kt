@@ -1,20 +1,18 @@
 package com.sejuandev.marvelcharactersapp.di.modules
 
-import com.sejuandev.marvelcharactersapp.controllers.CharactersController
-import com.sejuandev.marvelcharactersapp.controllers.CharactersControllerImpl
+import com.sejuandev.marvelcharactersapp.repository.MarvelRepository
+import com.sejuandev.marvelcharactersapp.repository.MarvelRepositoryImpl
 import dagger.Binds
 import dagger.Module
+import dagger.Reusable
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
-import javax.inject.Named
+import dagger.hilt.components.SingletonComponent
 
 @Module
-@InstallIn(ViewModelComponent::class)
+@InstallIn(SingletonComponent::class)
 abstract class CharactersModule {
 
     @Binds
-    @Named("service")
-    abstract fun bindCharactersController(
-        charactersControllerImpl: CharactersControllerImpl
-    ): CharactersController
+    @Reusable
+    abstract fun provideMarvelRepository(marvelRepositoryImpl: MarvelRepositoryImpl): MarvelRepository
 }
