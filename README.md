@@ -27,3 +27,11 @@ MarvelAPP consumes The Marvel Comics API ([MarvelAPI](http://https://developer.m
 ##### Package
 - di.modules: ApiModule Provides Retrofit to create MarvelApi, Characters Module binds MarvelRepository
 
+## Gradle
+##### Project: 
+- Hilt classpath added to dependencies
+##### Module: 
+- Plugins: Parcelize, Kapt, dagger.hilt added
+- Dependencies: Retrofit, Gson, Picasso and Hilt dependencies added. Viewbinding enabled
+- Settings: maven { url 'https://jitpack.io' } into repositories
+
