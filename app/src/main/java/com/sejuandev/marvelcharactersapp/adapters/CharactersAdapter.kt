@@ -40,7 +40,7 @@ class CharactersAdapter(private val listener: OnClickListener) :
             binding.apply {
                 characterName.text = character.name
                 characterId.text = character.id.toString()
-                characterThumbnail.setImageURL(character.thumbnail, character.thumbnailExt)
+                characterThumbnail.setImageURL(character.image)
             }
         }
     }

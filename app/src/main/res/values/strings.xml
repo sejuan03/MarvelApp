@@ -7,4 +7,5 @@
     <string name="Error_message">Error</string>
     <string name="comic_name">Comic name</string>
     <string name="comic_list">Comic List</string>
+    <string name="comic_appearances">Comic Appearances</string>
 </resources>
