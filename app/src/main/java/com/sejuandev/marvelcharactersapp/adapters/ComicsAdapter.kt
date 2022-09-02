@@ -6,19 +6,22 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sejuandev.marvelcharactersapp.R
 import com.sejuandev.marvelcharactersapp.databinding.ComicItemBinding
+import com.sejuandev.marvelcharactersapp.extensions.setImageURL
 
 class ComicsAdapter() :
     RecyclerView.Adapter<ComicsAdapter.ComicsHolder>() {
 
-    private val comics = mutableListOf<String>()
-
-    fun addComics(comic: String) {
-        comics.add(comic)
-        notifyItemInserted(itemCount - 1)
-    }
+    var comics = listOf<String>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     inner class ComicsHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val binding = ComicItemBinding.bind(view)
+        private val binding = ComicItemBinding.bind(view)
+        fun bind(comic: String) {
+            binding.comicThumbnail.setImageURL(comic)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComicsHolder {
@@ -28,10 +31,7 @@ class ComicsAdapter() :
     }
 
     override fun onBindViewHolder(holder: ComicsHolder, position: Int) {
-        val comic = comics[position]
-        with(holder) {
-            binding.comicName.text = comic
-        }
+        holder.bind(comics[position])
     }
 
     override fun getItemCount(): Int = comics.size

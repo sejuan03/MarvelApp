@@ -25,10 +25,11 @@ class MainViewModel @Inject constructor(
         withContext(Dispatchers.IO) {
             val charactersList = characters.getCharacters()
             withContext(Dispatchers.Main) {
-                charactersList.catch { cause ->
-                    _state.value =
-                        MarvelCharactersState.ShowError(error = cause.message ?: ERROR_MESSAGE)
-                }
+                charactersList
+                    .catch { cause ->
+                        _state.value =
+                            MarvelCharactersState.ShowError(error = cause.message ?: ERROR_MESSAGE)
+                    }
                     .onStart {
                         _state.value = MarvelCharactersState.ShowLoading(isLoading = true)
                     }

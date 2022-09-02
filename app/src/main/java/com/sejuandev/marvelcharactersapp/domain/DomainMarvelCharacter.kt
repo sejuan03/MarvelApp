@@ -10,8 +10,7 @@ data class DomainMarvelCharacter(
     val description: String,
     val id: Int,
     val name: String,
-    val thumbnail: String,
-    val thumbnailExt: String
+    val image: String
 ) : Parcelable {
     constructor(marvelCharacter: MarvelCharacter) : this(
         marvelCharacter.comics.items.map {
@@ -20,7 +19,6 @@ data class DomainMarvelCharacter(
         marvelCharacter.description,
         marvelCharacter.id,
         marvelCharacter.name,
-        marvelCharacter.thumbnail.path,
-        marvelCharacter.thumbnail.extension
+        image = "${marvelCharacter.thumbnail.path}.${marvelCharacter.thumbnail.extension}"
     )
 }
