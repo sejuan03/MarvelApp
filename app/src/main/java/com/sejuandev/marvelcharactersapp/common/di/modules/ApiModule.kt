@@ -1,10 +1,10 @@
-package com.sejuandev.marvelcharactersapp.di.modules
+package com.sejuandev.marvelcharactersapp.common.di.modules
 
-import com.sejuandev.marvelcharactersapp.constants.BASE_URL
-import com.sejuandev.marvelcharactersapp.constants.PRIVATE_KEY
-import com.sejuandev.marvelcharactersapp.constants.PUBLIC_KEY
+import com.sejuandev.marvelcharactersapp.common.constants.BASE_URL
+import com.sejuandev.marvelcharactersapp.common.constants.PRIVATE_KEY
+import com.sejuandev.marvelcharactersapp.common.constants.PUBLIC_KEY
 import com.sejuandev.marvelcharactersapp.data.api.MarvelApi
-import com.sejuandev.marvelcharactersapp.extensions.createHash
+import com.sejuandev.marvelcharactersapp.common.extensions.createHash
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

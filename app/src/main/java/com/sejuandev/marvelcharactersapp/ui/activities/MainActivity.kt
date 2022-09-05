@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sejuandev.marvelcharactersapp.adapters.CharactersAdapter
-import com.sejuandev.marvelcharactersapp.adapters.OnClickListener
+import com.sejuandev.marvelcharactersapp.ui.adapters.CharactersAdapter
+import com.sejuandev.marvelcharactersapp.ui.adapters.OnClickListener
 import com.sejuandev.marvelcharactersapp.databinding.ActivityMainBinding
 import com.sejuandev.marvelcharactersapp.domain.DomainMarvelCharacter
 import com.sejuandev.marvelcharactersapp.ui.MainViewModel

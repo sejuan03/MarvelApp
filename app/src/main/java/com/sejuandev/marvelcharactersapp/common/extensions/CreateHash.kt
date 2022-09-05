@@ -1,4 +1,4 @@
-package com.sejuandev.marvelcharactersapp.extensions
+package com.sejuandev.marvelcharactersapp.common.extensions
 
 import java.math.BigInteger
 import java.security.MessageDigest
