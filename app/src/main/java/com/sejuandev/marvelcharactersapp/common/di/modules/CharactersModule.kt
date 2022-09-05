@@ -1,4 +1,4 @@
-package com.sejuandev.marvelcharactersapp.di.modules
+package com.sejuandev.marvelcharactersapp.common.di.modules
 
 import com.sejuandev.marvelcharactersapp.domain.repository.MarvelRepository
 import com.sejuandev.marvelcharactersapp.data.api.MarvelRepositoryImpl

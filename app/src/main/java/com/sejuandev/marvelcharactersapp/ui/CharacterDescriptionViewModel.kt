@@ -2,7 +2,7 @@ package com.sejuandev.marvelcharactersapp.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sejuandev.marvelcharactersapp.constants.ERROR_MESSAGE
+import com.sejuandev.marvelcharactersapp.common.constants.ERROR_MESSAGE
 import com.sejuandev.marvelcharactersapp.domain.repository.MarvelComicsRepository
 import com.sejuandev.marvelcharactersapp.usecases.MarvelCharactersComicsState
 import dagger.hilt.android.lifecycle.HiltViewModel

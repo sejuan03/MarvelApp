@@ -1,4 +1,4 @@
-package com.sejuandev.marvelcharactersapp.constants
+package com.sejuandev.marvelcharactersapp.common.constants
 
 const val ERROR_MESSAGE = "An error has occurred"
 const val BASE_URL = "https://gateway.marvel.com/"

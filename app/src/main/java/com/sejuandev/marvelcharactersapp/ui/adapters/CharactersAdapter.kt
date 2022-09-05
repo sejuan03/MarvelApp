@@ -1,4 +1,4 @@
-package com.sejuandev.marvelcharactersapp.adapters
+package com.sejuandev.marvelcharactersapp.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sejuandev.marvelcharactersapp.R
 import com.sejuandev.marvelcharactersapp.databinding.CharacterItemBinding
-import com.sejuandev.marvelcharactersapp.extensions.setImageURL
+import com.sejuandev.marvelcharactersapp.common.extensions.setImageURL
 import com.sejuandev.marvelcharactersapp.domain.DomainMarvelCharacter
 
 class CharactersAdapter(private val listener: OnClickListener) :

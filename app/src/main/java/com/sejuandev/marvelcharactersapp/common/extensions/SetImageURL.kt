@@ -1,4 +1,4 @@
-package com.sejuandev.marvelcharactersapp.extensions
+package com.sejuandev.marvelcharactersapp.common.extensions
 
 import android.widget.ImageView
 import com.squareup.picasso.Picasso

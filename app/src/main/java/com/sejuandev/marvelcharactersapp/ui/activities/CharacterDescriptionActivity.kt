@@ -6,11 +6,11 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sejuandev.marvelcharactersapp.adapters.ComicsAdapter
+import com.sejuandev.marvelcharactersapp.ui.adapters.ComicsAdapter
 import com.sejuandev.marvelcharactersapp.databinding.ActivityCharacterDescriptionBinding
 import com.sejuandev.marvelcharactersapp.domain.DomainMarvelCharacter
 import com.sejuandev.marvelcharactersapp.domain.DomainMarvelCharacterComics
-import com.sejuandev.marvelcharactersapp.extensions.setImageURL
+import com.sejuandev.marvelcharactersapp.common.extensions.setImageURL
 import com.sejuandev.marvelcharactersapp.ui.CharacterDescriptionViewModel
 import com.sejuandev.marvelcharactersapp.usecases.MarvelCharactersComicsState
 import dagger.hilt.android.AndroidEntryPoint

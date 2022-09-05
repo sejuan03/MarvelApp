@@ -1,4 +1,4 @@
-package com.sejuandev.marvelcharactersapp.adapters
+package com.sejuandev.marvelcharactersapp.ui.adapters
 
 import com.sejuandev.marvelcharactersapp.domain.DomainMarvelCharacter
 
